@@ -1,0 +1,112 @@
+<apex:page controller="SimpleExcelToVfCleanedController" contentType="application/vnd.ms-excel#SimpleExcelToVF.xml">
+{!XML_HEADER}
+    <Workbook
+        xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+        xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:x="urn:schemas-microsoft-com:office:excel"
+        xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+        xmlns:html="http://www.w3.org/TR/REC-html40">
+        <DocumentProperties
+            xmlns="urn:schemas-microsoft-com:office:office">
+            <Author>Russell Keenan</Author>
+            <LastAuthor>Russell Keenan</LastAuthor>
+            <Created>2016-04-10T13:58:10Z</Created>
+            <Version>14.00</Version>
+        </DocumentProperties>
+        <OfficeDocumentSettings
+            xmlns="urn:schemas-microsoft-com:office:office">
+            <AllowPNG/>
+        </OfficeDocumentSettings>
+        <ExcelWorkbook
+            xmlns="urn:schemas-microsoft-com:office:excel">
+            <WindowHeight>12600</WindowHeight>
+            <WindowWidth>27795</WindowWidth>
+            <WindowTopX>480</WindowTopX>
+            <WindowTopY>105</WindowTopY>
+            <ProtectStructure>False</ProtectStructure>
+            <ProtectWindows>False</ProtectWindows>
+        </ExcelWorkbook>
+        <Styles>
+            <Style ss:ID="Default" ss:Name="Normal">
+                <Alignment ss:Vertical="Bottom"/>
+                <Borders/>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+            <Style ss:ID="s63">
+                <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="42" ss:Color="#FF0000"
+        ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="s64">
+                <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="s66">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+        ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="s67">
+                <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+                <NumberFormat ss:Format="Short Date"/>
+            </Style>
+            <Style ss:ID="s68">
+                <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+                <NumberFormat ss:Format="General Date"/>
+            </Style>
+        </Styles>
+        <Worksheet ss:Name="SimpleOpportunityExcel">
+            <Table ss:ExpandedColumnCount="" ss:ExpandedRowCount="" x:FullColumns="1"
+       x:FullRows="1" ss:DefaultRowHeight="15">
+                <Column ss:Width="370.5"/>
+                <Column ss:Width="138.75"/>
+                <Column ss:Width="72"/>
+                <Column ss:AutoFitWidth="0" ss:Width="42.75"/>
+                <Column ss:Width="93"/>
+                <Column ss:Width="56.25"/>
+                <Column ss:Width="101.25"/>
+                <Column ss:Width="83.25"/>
+                <Row>
+                    <Cell ss:MergeDown="1" ss:StyleID="s63">
+                        <Data ss:Type="String">Open Opportunities</Data>
+                    </Cell>
+                    <Cell ss:MergeDown="1" ss:StyleID="s64"/>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="30.75"/>
+                <Row ss:AutoFitHeight="0">
+                <apex:repeat value="{!ColumnHeadings}" var="eachColumnHeading" >
+                    <Cell ss:StyleID="s66">
+                        <Data ss:Type="String">{!eachColumnHeading}</Data>
+                    </Cell>
+                </apex:repeat>
+                </Row>
+            <apex:repeat value="{!AllOpenOpportunities}" var="eachOpportunity" >
+                <Row ss:AutoFitHeight="0">
+                <apex:repeat value="{!ColumnApiKeys}" var="eachColumnKey" >
+                    <Cell ss:StyleID="s64">    
+                        <Data ss:Type="String">{!eachOpportunity[eachColumnKey]}</Data>
+                    </Cell> 
+                </apex:repeat>   
+                </Row>
+            </apex:repeat>
+            </Table>
+            <WorksheetOptions
+                xmlns="urn:schemas-microsoft-com:office:excel">
+                <Unsynced/>
+                <Selected/>
+                <DoNotDisplayGridlines/>
+                <Panes>
+                    <Pane>
+                        <Number>3</Number>
+                        <ActiveRow>4</ActiveRow>
+                    </Pane>
+                </Panes>
+                <ProtectObjects>False</ProtectObjects>
+                <ProtectScenarios>False</ProtectScenarios>
+            </WorksheetOptions>
+        </Worksheet>
+    </Workbook>
+    {!WORKBOOK_END}
+</apex:page>

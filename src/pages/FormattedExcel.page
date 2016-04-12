@@ -1,0 +1,223 @@
+<apex:page controller="FormattedExcelController" contentType="application/vnd.ms-excel#SimpleExcelToVF.xml">
+    {!XML_HEADER}
+    <Workbook
+        xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+        xmlns:o="urn:schemas-microsoft-com:office:office"
+        xmlns:x="urn:schemas-microsoft-com:office:excel"
+        xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+        xmlns:html="http://www.w3.org/TR/REC-html40">
+        <DocumentProperties
+            xmlns="urn:schemas-microsoft-com:office:office">
+            <Author>Russell Keenan</Author>
+            <LastAuthor>Russell Keenan</LastAuthor>
+            <Created>2016-03-11T13:32:31Z</Created>
+            <LastSaved>2016-03-11T13:32:31Z</LastSaved>
+            <Version>14.00</Version>
+        </DocumentProperties>
+        <OfficeDocumentSettings
+            xmlns="urn:schemas-microsoft-com:office:office">
+            <AllowPNG/>
+        </OfficeDocumentSettings>
+        <ExcelWorkbook
+            xmlns="urn:schemas-microsoft-com:office:excel">
+            <WindowHeight>13365</WindowHeight>
+            <WindowWidth>27795</WindowWidth>
+            <WindowTopX>480</WindowTopX>
+            <WindowTopY>120</WindowTopY>
+            <ProtectStructure>False</ProtectStructure>
+            <ProtectWindows>False</ProtectWindows>
+        </ExcelWorkbook>
+        <Styles>
+            <Style ss:ID="Default" ss:Name="Normal">
+                <Alignment ss:Vertical="Bottom"/>
+                <Borders/>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+            <Style ss:ID="s74">
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FFFFFF"/>
+                <Interior ss:Color="#000000" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="s75">
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+            </Style>
+            <Style ss:ID="s77">
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <NumberFormat ss:Format="#,##0"/>
+            </Style>
+            <Style ss:ID="s81">
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <NumberFormat ss:Format="[$€-2]\ #,##0"/>
+            </Style>
+            <Style ss:ID="s82">
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <Interior ss:Color="#CC3300" ss:Pattern="Solid"/>
+                <NumberFormat ss:Format="[$€-2]\ #,##0"/>
+            </Style>
+            <Style ss:ID="s105">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+                <Borders>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+                </Borders>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="16" ss:Color="#000000"
+        ss:Bold="1"/>
+                <Interior ss:Color="#00B050" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="s106">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+                <Borders>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+                </Borders>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"
+        ss:Bold="1"/>
+                <Interior ss:Color="#00B050" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="s107">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+                    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+                <Interior ss:Color="#00B050" ss:Pattern="Solid"/>
+                <NumberFormat ss:Format="[$€-2]\ #,##0"/>
+            </Style>
+        </Styles>
+        <Worksheet ss:Name="Final Report Tab 1">
+            <Table  x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">
+                <Column ss:Index="2" ss:Width="304.5"/>
+                <Column ss:Width="106.5"/>
+                <Column ss:Width="65.25"/>
+                <Column ss:Width="76.5"/>
+                <Column ss:Width="89.25"/>
+                <Column ss:Width="96.75"/>
+                <Column ss:Width="98.25" ss:Span="1"/>
+                <Column ss:Index="10" ss:Width="101.25"/>
+                <Row ss:Height="15.75"/>
+                <Row ss:Height="21">
+                    <Cell ss:Index="2" ss:StyleID="s105">
+                        <Data ss:Type="String">Largest Opportunity </Data>
+                    </Cell>
+                </Row>
+                <Row ss:Height="15.75">
+                    <Cell ss:Index="2" ss:StyleID="s106">
+                        <Data ss:Type="String">{!LargestOpportunity.Name}</Data>
+                    </Cell>
+                </Row>
+                <Row ss:Height="16.5">
+                    <Cell ss:Index="2" ss:StyleID="s107">
+                        <Data ss:Type="Number">{!LargestOpportunity.Amount}</Data>
+                    </Cell>
+                </Row>
+                
+                <Row ss:Index="7">
+                    <Cell ss:Index="2" ss:StyleID="s74">
+                        <Data ss:Type="String">Oportunity Stage</Data>
+                    </Cell>                    
+                <apex:repeat value="{!AllOpportunityStageHeadings}" var="eachOpportunityHeading" >
+                    <Cell ss:StyleID="s74">
+                        <Data ss:Type="String">{!OpportunityStagesWithFormatting[eachOpportunityHeading].Name}</Data>
+                    </Cell>
+                </apex:repeat>  
+                </Row> 
+                
+
+                <Row>
+                    <Cell ss:Index="2" ss:StyleID="s75">
+                        <Data ss:Type="String">Stage Value</Data>
+                    </Cell>
+                <apex:repeat value="{!AllOpportunityStageHeadings}" var="eachOpportunityHeading" >
+                    <Cell ss:StyleID="{!OpportunityStagesWithFormatting[eachOpportunityHeading].Formatting}">
+                        <Data ss:Type="Number">{!OpportunityStagesWithFormatting[eachOpportunityHeading].Total}</Data>
+                    </Cell>
+                </apex:repeat>  
+                </Row> 
+
+
+                <Row>
+                    <Cell ss:Index="2" ss:StyleID="s75">
+                        <Data ss:Type="String">Total Oportunities per Stage</Data>
+                    </Cell>
+                    
+                <apex:repeat value="{!AllOpportunityStageHeadings}" var="eachOpportunityHeading" >
+                    <Cell ss:StyleID="s77">
+                        <Data ss:Type="Number">{!OpportunityStagesWithFormatting[eachOpportunityHeading].Quantity}</Data>
+                    </Cell>
+                </apex:repeat>  
+                </Row>
+
+
+                <Row>
+                    <Cell ss:Index="2" ss:StyleID="s75">
+                        <Data ss:Type="String">Total Stage Summation</Data>
+                    </Cell>
+                <apex:repeat value="{!AllOpportunityStageHeadings}" var="eachOpportunityHeading" >
+                    <Cell ss:StyleID="s81" ss:Formula="{!OpportunityStagesWithFormatting[eachOpportunityHeading].Formula}">
+                        <Data ss:Type="Number"></Data>
+                    </Cell>
+                </apex:repeat>  
+                </Row>
+
+
+            </Table>
+            <WorksheetOptions
+                xmlns="urn:schemas-microsoft-com:office:excel">
+                <PageSetup>
+                    <Header x:Margin="0.3"/>
+                    <Footer x:Margin="0.3"/>
+                    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+                </PageSetup>
+                <Print>
+                    <ValidPrinterInfo/>
+                    <PaperSizeIndex>9</PaperSizeIndex>
+                    <HorizontalResolution>600</HorizontalResolution>
+                    <VerticalResolution>600</VerticalResolution>
+                </Print>
+                <Selected/>
+                <Panes>
+                    <Pane>
+                        <Number>3</Number>
+                        <ActiveRow>24</ActiveRow>
+                        <ActiveCol>1</ActiveCol>
+                    </Pane>
+                </Panes>
+                <ProtectObjects>False</ProtectObjects>
+                <ProtectScenarios>False</ProtectScenarios>
+            </WorksheetOptions>
+        </Worksheet>
+    </Workbook>
+    {!WORKBOOK_END}	
+</apex:page>

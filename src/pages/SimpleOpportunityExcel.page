@@ -1,0 +1,22 @@
+<apex:page controller="SimpleOpportunityExcelController" contentType="application/vnd.ms-excel#SimpleOpportunityExcel.xls">
+    <apex:pageBlock title="Open Opportunities" >
+        <apex:pageBlockTable value="{!AllOpenOpportunities}" var="eachOpportunity">
+            <apex:column value="{!eachOpportunity.Id}"/>
+            <apex:column value="{!eachOpportunity.Type}"/>
+            <apex:column value="{!eachOpportunity.LeadSource}"/>
+            <apex:column headerValue="Amount">
+                <apex:outputText value="{0, number, 0}">
+                    <apex:param value="{!eachOpportunity.Amount}" />
+                </apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Expected Revenue">
+                <apex:outputText value="{0, number, 0}">
+                    <apex:param value="{!eachOpportunity.ExpectedRevenue}" />
+                </apex:outputText>
+            </apex:column>
+            <apex:column value="{!eachOpportunity.CloseDate}"/>
+            <apex:column value="{!eachOpportunity.StageName}"/>
+            <apex:column value="{!eachOpportunity.CreatedDate}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>    	
+</apex:page>
